@@ -51,11 +51,9 @@ function getRandomSentence()
 	} while (shownSentences.includes(index));
 
 	shownSentences.push(index);
-	console.log(shownSentences);
+	// console.log(shownSentences);
 	return randomSentences[index];
 }
-
-
 
 /**
  * Create server and callback function
