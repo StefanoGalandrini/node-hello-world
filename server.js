@@ -20,7 +20,7 @@ let port = +process.env.PORT || 3000;
  */
 function htmlResponse(res, content)
 {
-	res.writeHead(200, { "Content-Type": "text/html" });
+	res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
 	res.end(content);
 }
 
@@ -34,7 +34,7 @@ const server = http.createServer(function (req, res)
 {
 	// request variable to display
 
-	const reqVar = `<h1>Variabile richiesta: ${process.env.RESPONSE_VAR}</h1>`;
+	const reqVar = `<h1>La variabile richiesta è: ${process.env.RESPONSE_VAR}</h1>`;
 
 	htmlResponse(res, reqVar);
 });
