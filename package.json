@@ -1,0 +1,29 @@
+{
+	"name": "node-hello-world",
+	"version": "1.0.0",
+	"description": "Creazione server con Node js",
+	"main": "server.js",
+	"scripts": {
+		"start": "nodemon server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/StefanoGalandrini/node-hello-world.git"
+	},
+	"keywords": [
+		"node",
+		"server",
+		"javascript"
+	],
+	"author": "Stefano Galandrini",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/StefanoGalandrini/node-hello-world/issues"
+	},
+	"homepage": "https://github.com/StefanoGalandrini/node-hello-world#readme",
+	"devDependencies": {
+		"dotenv": "^16.3.1",
+		"nodemon": "^3.0.1"
+	}
+}
