@@ -24,6 +24,49 @@ function htmlResponse(res, content)
 	res.end(content);
 }
 
+/**
+ * Array of sentences to display
+ * @type {string[]}
+ */
+const randomSentences = [
+	"La perseveranza è ciò che rende l’impossibile possibile, il possibile probabile e il probabile certo.",
+	"La vita è un 10% cosa ti accade e un 90% come reagisci.",
+	"Non aspettare. Il tempo non sarà mai giusto.",
+	"Sii il cambiamento che vuoi vedere nel mondo.",
+	"La miglior visione è l’intuizione."
+];
+
+/**
+ * Array to keep track of already shown sentences
+ * @type {string[]}
+ */
+let shownSentences = [];
+
+/**
+ * Returns a random sentence from the Array
+ * @returns {string}
+ */
+function getRandomSentence()
+{
+	let index;
+
+	//Reset index Array when all sentences have been shown
+	if (shownSentences.length === randomSentences.length)
+	{
+		shownSentences = [];
+	}
+
+	do
+	{
+		index = Math.floor(Math.random() * randomSentences.length);
+		// console.log(index);
+	} while (shownSentences.includes(index));
+
+	shownSentences.push(index);
+	return randomSentences[index];
+}
+
+
 
 /**
  * Create server and callback function
@@ -33,10 +76,12 @@ function htmlResponse(res, content)
 const server = http.createServer(function (req, res)
 {
 	// request variable to display
+	console.log(shownSentences);
+	const randomSentence = getRandomSentence();
+	// const resSentence = `<h1>La frase è: ${process.env.RESPONSE_VAR}</h1>`;
+	const resSentence = `<h1>${randomSentence}</h1>`;
 
-	const reqVar = `<h1>La variabile richiesta è: ${process.env.RESPONSE_VAR}</h1>`;
-
-	htmlResponse(res, reqVar);
+	htmlResponse(res, resSentence);
 });
 
 // Start server
