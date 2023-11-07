@@ -59,7 +59,6 @@ function getRandomSentence()
 	do
 	{
 		index = Math.floor(Math.random() * randomSentences.length);
-		// console.log(index);
 	} while (shownSentences.includes(index));
 
 	shownSentences.push(index);
@@ -76,7 +75,6 @@ function getRandomSentence()
 const server = http.createServer(function (req, res)
 {
 	// request variable to display
-	console.log(shownSentences);
 	const randomSentence = getRandomSentence();
 	// const resSentence = `<h1>La frase è: ${process.env.RESPONSE_VAR}</h1>`;
 	const resSentence = `<h1>${randomSentence}</h1>`;
